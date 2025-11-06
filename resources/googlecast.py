@@ -17,6 +17,18 @@
 # pylint: disable=R
 # pylint: disable=W
 # pylint: disable=E
+import collections
+import collections.abc
+
+# Patch pour Python 3.10+ (compatibilité collections.Mapping)
+if not hasattr(collections, 'Mapping'):
+    collections.Mapping = collections.abc.Mapping
+if not hasattr(collections, 'MutableMapping'):
+    collections.MutableMapping = collections.abc.MutableMapping
+if not hasattr(collections, 'Sequence'):
+    collections.Sequence = collections.abc.Sequence
+if not hasattr(collections, 'Callable'):
+    collections.Callable = collections.abc.Callable
 
 import os
 import re
